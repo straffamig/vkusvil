@@ -34,8 +34,14 @@ ingridient_id, title, category
   
   dict of dict? title ingridients count
   first i'll write an app that finds keywords in posts then i can add registration
-  my project currently is a web app that searches posts by keywords provided by the user
+  my project currently is a web app that searches posts by 
+  keywords provided by the user
   
   I was following this tutorial (https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3) for creating a web app that can create and edit posts without authorisation. I decided that my web app will display videos subtitles (auto-generated or manual) as posts and search for relatable "posts" by inserted keywords. that's why I added a few more columns to the posts table such as author and title of the video. So posts are added by the link user adds. this app can be useful for finding explanation for a term but in a video format. 
   Youtube api returns subtitles as a dcitionary ([text], [start], [duration]) so I'm adding additional column to my posts table called start for my app to display the needed line but no i won't add another column I will just add this dictionary into my content column so that my posts["content"] is a dict in dict becuase it's important tp save where the term has been used
   i also decided to leave the design as it is because i don't mind chaos meaning I left "created" to be displaying when redirecting to "/<{{ post['id'] }}>"
+          #what if user inputs keywords like this "hey,world,knife"; search will be for heyworldknife; let's replace puncctuation with spaces and after split() in search fuction also do strip()
+we decided to make search functuion more effective by creating a set of every ynique word in posts
+  i must remove previous posts table bc it had string as 'content' column
+  design wise i have to take care of removing 'search' from nav bar when i'm on /searched route
+  optional nav bar items are "create" and "search", so I should create a tool that allows me to display those two on some pages and remove on /search and /create
